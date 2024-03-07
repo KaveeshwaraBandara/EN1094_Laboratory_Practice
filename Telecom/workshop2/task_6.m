@@ -48,8 +48,8 @@ sampling_rate = Fs*qbits*samples_per_bit; %The sampling rate used to represent t
 fc = sampling_rate/100; % frequency of the sinosoid
 Wc = 2*pi*fc;
 delt = 1/sampling_rate; %Sample time period
-phase0 = pi/2;
-phase1 = 0;
+phase0 = 0;
+phase1 = pi/2;
 number_of_samples = number_of_bits*samples_per_bit; %Total number of samples of the transmitted signal
 X = zeros([1,number_of_samples]); %X(t) − This array is used to store the transmitted analog signal
 %This section does the encoding which is described previously
@@ -121,7 +121,7 @@ end
 
 
 %BER calculation
-BER = sum(decoded_bit_stream - bit_stream)/length(bit_stream);
+BER = sum(decoded_bit_stream ~= bit_stream)/length(bit_stream);
 disp(BER);
 
 x = [x,Amplitude];

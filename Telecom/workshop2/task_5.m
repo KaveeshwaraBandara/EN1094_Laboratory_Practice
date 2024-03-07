@@ -121,7 +121,7 @@ end
 
 
 %BER calculation
-BER = sum(decoded_bit_stream - bit_stream)/length(bit_stream);
+BER = sum(decoded_bit_stream ~= bit_stream)/length(bit_stream);
 disp(BER);
 
 x = [x,Amplitude];

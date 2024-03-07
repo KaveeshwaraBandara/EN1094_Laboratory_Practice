@@ -118,7 +118,7 @@ decoded_audio_samples(i) = -decoded_audio_samples(i);
 end
 end
 
-BER = sum(decoded_bit_stream_error_corrected - bit_stream)/length(bit_stream);
+BER = sum(decoded_bit_stream_error_corrected ~= bit_stream)/length(bit_stream);
 disp(BER);
 
 x = [x,Amplitude];
